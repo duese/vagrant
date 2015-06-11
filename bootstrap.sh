@@ -58,12 +58,12 @@ apt-get -y install apache2
 # to the default vagrant shared folder
 if ! [ -L /var/www ]; then
     echo "${ECHO_PREFIX} Creating webroot ..."
-    rm -rf /var/www
-    ln -fs /vagrant /var/www
+    rm -rf /var/www/html
+    ln -fs /vagrant /var/www/html
 
     a2enmod rewrite
 
-    sed -i '/AllowOverride None/c AllowOverride All' /etc/apache2/sites-available/default
+    sed -i '/AllowOverride None/c AllowOverride All' /etc/apache2/sites-available/000-default.conf
 
     service apache2 restart
 fi
