@@ -62,6 +62,7 @@ if ! [ -L /var/www ]; then
     ln -fs /vagrant /var/www/html
 
     a2enmod rewrite
+    a2enmod mime
 
     sed -i '/AllowOverride None/c AllowOverride All' /etc/apache2/sites-available/000-default.conf
 
